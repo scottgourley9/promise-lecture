@@ -5,17 +5,30 @@
     <title>Empty Night</title>
 </head>
 <body ng-controller="controller">
-    This is just text
-    <br/>
-    The scope says : {{says}}
-    
+    $q Promise Examples
+    <br>
+    <br>
+    Are we connected to scope? {{connected}}
+
     <p>
-        {{theThingWeAskedFor}}
+        {{theDataWeAskedFor}}
     </p>
-    
-    <button ng-click="getPokemon()">Get Da Bulbasaur</button>
-    
-    {{pokemon}}
+
+    <button ng-click="getLuke()">Get Luke Using the Force of $q</button><br>
+
+    Name: {{luke.name}}<br>
+    Height: {{luke.height}}<br>
+    Mass: {{luke.mass}}<br>
+    Hair Color: {{luke.hair_color}}<br>
+
+    <button type="button" name="button" ng-click="getCp3()">Get C-3PO</button><br>
+    Name: {{c3po.name}}<br>
+    Height: {{c3po.height}}<br>
+    Mass: {{c3po.mass}}<br>
+    Hair Color: {{c3po.hair_color}}<br>
+    Photo: <img src="{{c3po.photo}}" alt="" />
+
+
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
      <script src="app.js"></script>
     <script src="controller.js"></script>

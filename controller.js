@@ -1,41 +1,64 @@
-angular.module('app').controller('controller', function ($scope, service1, $q, pokemonService) {
-    $scope.says = "I am a scope";
+angular.module('app').controller('controller', function ($scope, service1, $q, starWarsService) {
+    $scope.connected = "yes";
 
-    $scope.theThingWeAskedFor = "Asking for the thing...";
+    $scope.theDataWeAskedFor = "Asking for the data...";
 
-    $scope.my6yearOldWantsAUnicorn = function () {
-        var promise = service1.getMeAUnicorn();
-        
+
+
+
+
+    $scope.getCp3 = function(){
+      starWarsService.getCp3().then(function(res){
+        $scope.c3po = res
+      })
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    $scope.getDrPepper = function () {
+        var promise = service1.getDrPepper();
+
         promise.then(function(whatIaskedFor){
-            $scope.theThingWeAskedFor = whatIaskedFor;
+            $scope.theDataWeAskedFor = whatIaskedFor;
         })
     }
 
-    $scope.my6yearOldWantsAUnicorn();
+    $scope.getDrPepper();
 
 
 //CONFIG
 
-    $scope.getPokemonFromService = function(){
-        pokemonService.getPokemon().then(function(result){
-            $scope.pokemon = result;
+    $scope.getLuke = function(){
+        starWarsService.getLuke().then(function(result){
+            $scope.luke = result;
         }, function(){
-            
+
         })
-            
+
     }
-    
+
     function resolve(){
-        
+
     }
-    
+
     function reject(){
-        
+
     }
-    
-    promise.then(resolve, reject);
-    
-    
+
+    // promise.then(resolve, reject);
+
+
 
     $scope.getPokemon = function(){
        $scope.getPokemonFromService();
@@ -45,7 +68,7 @@ angular.module('app').controller('controller', function ($scope, service1, $q, p
 //
 
 
-   
+
 
 
     $scope.submitApplication = function () {
